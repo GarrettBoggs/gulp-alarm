@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="build/css/vendor.css">
+    <script src="build/js/vendor.min.js"></script>
+    <script type="text/javascript" src="build/js/app.js"></script>
+
+
+    <title>Alarm Clock</title>
+  </head>
+  <body>
+    <div class="container">
+      <p>
+        Current Time is: <span id="time"></span>
+      </p>
+    <form id="set-button">
+      <p>hours:</p><input type="number" id="hours" max="23" min="0"></input>
+      <p>minutes</p><input id="minutes" type="number" max="59" min="0"></input>
+      <p>seconds</p><input id="seconds" type="number"max="59" min="0"></input>
+      <button type="submit"  name="button">Set Clock</button>
+    </form>
+    <p id="check"> </p>
+    </div>
+  </body>
+</html>
