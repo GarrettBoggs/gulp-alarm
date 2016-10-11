@@ -1,15 +1,12 @@
 var currentTime = moment();
+var allAlarms = [];
 
 function Alarm() {
 
 }
 
-Alarm.prototype.viewTime = function() {
-
-};
-
 Alarm.prototype.setAlarm = function (h , m , s,type) {
-    console.log("initial: " + s);
+
   if(type === 'pm'){
     h+=12;
   }
@@ -23,17 +20,21 @@ Alarm.prototype.setAlarm = function (h , m , s,type) {
     m -= 59;
   }
 
-  console.log(h);
+
 
   var setTime = moment({hour: h, minute: m, seconds: s});
-
-  return setTime;
+  allAlarms.push(setTime);
+  return allAlarms;
 };
 
-Alarm.prototype.checkTime = function(current , set) {
-  if(current.seconds() === set.seconds() && current.minutes() === set.minutes() && current.hours() === set.hours()){
-    return true;
+Alarm.prototype.checkTime = function(current , times) {
+  for(var i = 0; i < times.length; i ++) {
+    if(current.seconds() === times[i].seconds() && current.minutes() === times[i].minutes() && current.hours() === times[i].hours()) {
+      return true;
+    }
   }
+
+  return false;
 };
 
 exports.alarmModule = Alarm;

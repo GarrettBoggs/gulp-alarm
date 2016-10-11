@@ -3,22 +3,23 @@ var setTime = moment();
 var testAlarm = new Alarm();
 var snd = new Audio("images/Quack.mp3");
 var duckSound = false;
-
+var allAlarms = [];
 
 $(document).ready(function(){
   $("#duck").hide();
   function reloadTime(){
     setInterval(function(){
       $("#time").text(moment().format('MMMM Do YYYY, h:mm:ss a'));
-      if(setTime) {
-        if(testAlarm.checkTime(moment(),setTime)){
+
+        if(testAlarm.checkTime(moment(),allAlarms)){
+
           $("#duck").show();
           duckSound=true;
         }
         if(duckSound){
           snd.play();
         }
-      }
+      
     }, 1000)
   }
 
@@ -32,17 +33,14 @@ $(document).ready(function(){
     var minute = parseInt($("#minutes").val());
     var second = parseInt($("#seconds").val());
     var type = $('input[name="meridian"]:checked').val();
-    console.log(type);
-    setTime = testAlarm.setAlarm(hour,minute,second,type);
-    console.log(moment().hours());
-    $("#check").text("hour: "+hour+" minute: "+minute + " seconds: " + second);
+    allAlarms = testAlarm.setAlarm(hour,minute,second,type);
+    $("#check").append("Alarm Set For: "+hour+":"+minute + ":" + second+"<br>");
   })
 
   $("#stop-alarm").submit(function(event){
     event.preventDefault();
     setTime = null;
     $("#duck").hide();
-    $("#check").hide();
     duckSound=false;
   });
 

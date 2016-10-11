@@ -1,0 +1,11 @@
+ #sidekick{
+  background-image: url("http://www.sidekick.asia/thumb.php?src=http://www.sidekick.asia/wp-content/gallery/home-top-image/thumb.php_.png&w=1500&h=560");
+  background-position: center;
+  background-size: contain;
+
+}
+
+.jumbotron h1{
+  color:white;
+  text-shadow: 1px 1px 1px black;
+}

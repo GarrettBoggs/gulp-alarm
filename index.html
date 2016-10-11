@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="build/css/vendor.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="build/js/vendor.min.js"></script>
     <script type="text/javascript" src="build/js/app.js"></script>
 
@@ -10,13 +11,16 @@
   </head>
   <body>
     <div class="container">
+      <div class="jumbotron" id="sidekick">
+        <h1>SIDEKICK HOMEPAGE</h1>
+      </div>
       <div class="jumbotron">
         <h2>Current Time is: <span id="time"></span></h2>
       </div>
-      <form id="set-button">
-        <p>hours:</p><input type="number" id="hours" max="24" min="0"></input>
-        <p>minutes</p><input id="minutes" type="number" max="60" min="0"></input>
-        <p>seconds</p><input id="seconds" type="number"max="60" min="0"></input><br>
+      <form id="set-button" class="form-group">
+        <p>Enter Hours:</p><input class="form-control" type="number" id="hours" max="24" min="0"></input>
+        <p>Enter Minutes:</p><input class="form-control" id="minutes" type="number" max="60" min="0"></input>
+        <p>Enter Seconds:</p><input class="form-control" id="seconds" type="number"max="60" min="0"></input><br>
         <input type="radio" name="meridian" value="am" checked="checked"> A.M.<br>
         <input type="radio" name="meridian" value="pm"> P.M.<br>
         <button type="submit"  name="button" class="btn btn-success">Set Clock</button>
